@@ -59,7 +59,7 @@ def main():
         # Validate files
         valid_files = [
             f for f in uploaded_files 
-            if f.type in ALLOWED_TYPES and f.size <= MAX_FILE_SIZE_MB*1024*1024
+            if f.type in ALLOWED_TYPES and f.size <= MAX_FILE_SIZE_MB * 1024 * 1024
         ]
         
         with st.status("🔍 Processing documents...", expanded=True) as status:
@@ -133,58 +133,33 @@ def main():
         col3.metric("Analysis Time", f"{total_analysis_time:.1f}s")
         
         # Organized Results Display
-             with st.container():
-    st.markdown("### Material Properties")
-    cols = st.columns(4)
+        with st.container():
+            st.markdown("### Material Properties")
+            cols = st.columns(4)
 
-    with cols[0]:
-        c1, c2 = st.columns([2, 1])
-        c1.markdown(f"**Material Filling**\n`{results['material']}`")
-        confidence = results.get('material_confidence', 0)
-        c2.markdown(f"<br><span style='color:{"#2ecc71" if confidence > 70 else "#e67e22"}'>\n{confidence}%</span>", 
-                    unsafe_allow_html=True)
+            with cols[0]:
+                c1, c2 = st.columns([2, 1])
+                c1.markdown(f"**Material Filling**\n`{results['material']}`")
+                confidence = results.get('material_confidence', 0)
+                c2.markdown(f"<br><span style='color:{"#2ecc71" if confidence > 70 else "#e67e22"}'>\n{confidence}%</span>", 
+                            unsafe_allow_html=True)
 
-    cols[2].markdown(f"**Colour**\n`{results['colour']}`")
-    cols[3].markdown(f"**HV Qualified**\n`{results['hv_qualified']}`")
+            cols[2].markdown(f"**Colour**\n`{results['colour']}`")
+            cols[3].markdown(f"**HV Qualified**\n`{results['hv_qualified']}`")
 
-            
             st.markdown("### Mechanical Properties")
             cols = st.columns(4)
             cols[0].markdown(f"**Pull-to-Seat**\n`{results['pull_seat']}`")
             cols[1].markdown(f"**Gender**\n`{results['gender']}`")
             cols[2].markdown(f"**Mechanical Coding**\n`{results['mechanical_coding']}`")
             cols[3].markdown(f"**Pre-assembled**\n`{results['pre_assembled']}`")
-            
+
             st.markdown("### Dimensions")
             cols = st.columns(4)
             cols[0].markdown(f"**Height (mm)**\n`{results['height']}`")
             cols[1].markdown(f"**Width (mm)**\n`{results['width']}`")
             cols[2].markdown(f"**Length (mm)**\n`{results['length']}`")
             cols[3].markdown(f"**Cavities**\n`{results['cavities']}`")
-            
-            st.markdown("### Sealing & Protection")
-            cols = st.columns(4)
-            cols[0].markdown(f"**Housing Seal**\n`{results['housing_seal']}`")
-            cols[1].markdown(f"**Sealing Class**\n`{results['sealing_class']}`")
-            cols[2].markdown(f"**Wire Seal**\n`{results['wire_seal']}`")
-            cols[3].markdown(f"**Sealing**\n`{results['sealing']}`")
-            
-            st.markdown("### Additional Features")
-            cols = st.columns(4)
-            cols[0].markdown(f"**TPA**\n`{results['tpa']}`")
-            cols[1].markdown(f"**CPA**\n`{results['cpa']}`")
-            cols[2].markdown(f"**Colour Coding**\n`{results['colour_coding']}`")
-            cols[3].markdown(f"**Set/Kit**\n`{results['set_kit']}`")
-            
-            st.markdown("### Advanced Properties")
-            cols = st.columns(3)
-            cols[0].markdown(f"**Contact Systems**\n`{results['contact_systems']}`")
-            cols[1].markdown(f"**Working Temp**\n`{results['working_temp']}`")
-            cols[2].markdown(f"**Closed Cavities**\n`{results['closed_cavities']}`")
-            
-            cols = st.columns(2)
-            cols[0].markdown(f"**Connector Type**\n`{results['connector_type']}`")
-            cols[1].markdown(f"**Rows**\n`{results['rows']}`")
 
         # Source Documents
         with st.expander("📚 Processed Documents"):
@@ -209,14 +184,10 @@ def convert_to_csv(results, processed_files):
     output = StringIO()
     writer = csv.writer(output)
     
-    # Write header
     writer.writerow(["Attribute", "Value"])
-    
-    # Write all results
     for key, value in results.items():
         writer.writerow([key.replace('_', ' ').title(), value])
     
-    # Add processed files section
     writer.writerow([])
     writer.writerow(["Processed Files"] + processed_files)
     
