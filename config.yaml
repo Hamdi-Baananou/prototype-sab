@@ -1,5 +1,5 @@
 attributes:
-  material_filling:
+ material_filling:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -12,55 +12,57 @@ attributes:
         * "reinforced with..."
         * "improved [strength/stiffness] using..."
         * "contains X% [additive]"
-      ✓ Negative statements ("no additives", "unfilled")
+      ✓ Negative statements: "no additives", "unfilled"
 
     STEP 2: CONTEXT VALIDATION
     - For each candidate additive:
-      → Confirm direct mechanical purpose:
-        "GF30 for stiffness" ✓ 
-        "GB colorant" ✗ (non-mechanical)
-      → Reject incidental mentions:
-        "MF manufacturing facility" ✗ 
+      ✓ Confirm direct mechanical purpose:
+        - "GF30 for stiffness" → Valid ✓ 
+        - "GB colorant" → Rejected ✗ (non-mechanical)
+      ✗ Reject incidental mentions:
+        - "MF manufacturing facility" → Rejected ✗ 
 
     STEP 3: NEGATION CHECK
-    - Explicit "no additives" statement?
-      → Verify no contradictory mentions
-      → If confirmed: Return "none"
+    - If explicit "no additives" statement is found:
+      ✓ Verify no contradictory mentions.
+      ✓ If confirmed, return **"none"**.
 
     STEP 4: STANDARDIZATION
     - Convert equivalents to standard abbreviations:
-      "Glass fiber" → GF
-      "Mineral-filled" → MF
-      "Talc-filled" → T
-    - Reject non-standard terms:
-      "Carbon additives" → NOT FOUND
+      * "Glass fiber" → GF
+      * "Mineral-filled" → MF
+      * "Talc-filled" → T
+      * "Glass beads" → GB
+      * "Mica-filled" → MF
+    - Reject non-standard or ambiguous terms:
+      * "Carbon additives" → **NOT FOUND**
 
     STEP 5: CERTAINTY ASSESSMENT
     - Final check:
-      1. At least 1 valid additive with mechanical context ✓
-      2. No ambiguous/non-standard terms ✓
-      3. No conflicting information ✓
-    - Any doubts? → NOT FOUND
+      ✓ At least **one** valid additive with mechanical context.
+      ✓ No ambiguous or non-standard terms.
+      ✓ No conflicting information.
+    - If any doubts exist → **NOT FOUND**.
 
-    Examples:
-    "PA66-GF30-T15 (improved impact resistance)"
-    → REASONING: [Step1] GF,T + mech context → [Step2] Valid → [Step4] Standard 
-    → MATERIAL FILLING: GF,T
+    **Examples:**
+    - **PA66-GF30-T15 (improved impact resistance)**  
+      → REASONING: [Step1] Identified GF, T with mechanical context → [Step2] Valid → [Step4] Standardized  
+      → MATERIAL FILLING: **GF, T**  
 
-    "Unfilled PPS compound"
-    → REASONING: [Step1] "Unfilled" → [Step3] Negative confirmation 
-    → MATERIAL FILLING: none
+    - **Unfilled PPS compound**  
+      → REASONING: [Step1] "Unfilled" found → [Step3] Negative confirmation  
+      → MATERIAL FILLING: **none**  
 
-    "Contains 5% specialty reinforcement"
-    → REASONING: [Step1] Non-standard term → [Step4] Reject → [Step5] Uncertain 
-    → MATERIAL FILLING: NOT FOUND
+    - **Contains 5% specialty reinforcement**  
+      → REASONING: [Step1] Non-standard term → [Step4] Rejected → [Step5] Uncertain  
+      → MATERIAL FILLING: **NOT FOUND**  
 
-    Output format:
-    REASONING: [Step analysis summary]
+    **Output format:**  
+    REASONING: [Step analysis summary]  
     MATERIAL FILLING: [abbreviations/none/NOT FOUND]
 
 
-pull_to_seat:
+ pull_to_seat:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -126,7 +128,7 @@ pull_to_seat:
 
   
 
-material_name:
+ material_name:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -183,7 +185,7 @@ material_name:
 
 
 
-working_temperature:
+ working_temperature:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -252,7 +254,7 @@ working_temperature:
     WORKING TEMPERATURE: /[Max]/[Min]/NOT FOUND
 
 
-colour:
+ colour:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -315,7 +317,7 @@ colour:
     COLOUR: [color/multi/NOT FOUND]
 
 
-contact_systems:
+ contact_systems:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -374,7 +376,7 @@ contact_systems:
     CONTACT SYSTEMS: [system1,system2,.../NOT FOUND]
 
 
-gender:
+ gender:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -441,7 +443,7 @@ gender:
     REASONING: [Key determinations]  
     GENDER: [Male/Female/Unisex/Hybrid/NOT FOUND]
 
-height_mm:
+ height_mm:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -507,7 +509,7 @@ height_mm:
     REASONING: [Key determinations]  
     HEIGHT [MM]: [value/999]
 
-housing_seal:
+ housing_seal:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -571,7 +573,7 @@ housing_seal:
     HOUSING SEAL: [Radial Seal/Interface Seal/NOT FOUND]
 
 
-hv_qualified:
+ hv_qualified:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -639,7 +641,7 @@ hv_qualified:
     HV QUALIFIED: [Yes/No]
 
 
-length_mm:
+ length_mm:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -707,7 +709,7 @@ length_mm:
     LENGTH [MM]: [value/999]
 
 
-mechanical_coding:
+ mechanical_coding:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -776,7 +778,7 @@ mechanical_coding:
     MECHANICAL CODING: [A/B/C/D/Z/no naming/none]
 
 
-number_of_cavities:
+ number_of_cavities:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -835,7 +837,7 @@ number_of_cavities:
     NUMBER OF CAVITIES: [value/999]
 
 
-number_of_rows:
+ number_of_rows:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -903,7 +905,7 @@ number_of_rows:
     NUMBER OF ROWS: [integer/0]
 
 
-pre_assembled:
+ pre_assembled:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -962,7 +964,7 @@ pre_assembled:
     PRE-ASSEMBLED: [Yes/No/NOT FOUND]
 
 
-sealing:
+ sealing:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1021,7 +1023,7 @@ sealing:
     SEALING: [Sealed/Unsealed/NOT FOUND]
 
 
-sealing_class:
+ sealing_class:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1075,7 +1077,7 @@ sealing_class:
     Output format:
     SEALING CLASS: [IPx0/IPx4/IPx4K/IPx5/IPx6/IPx6K/IPx7/IPx8/IPx9/IPx9K]
 
-terminal_position_assurance:
+ terminal_position_assurance:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1130,7 +1132,7 @@ terminal_position_assurance:
     TERMINAL POSITION ASSURANCE: [number/0/NOT FOUND]
 
 
-connector_type:
+ connector_type:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1185,7 +1187,7 @@ connector_type:
     TYPE OF CONNECTOR: [Standard/Contact Carrier/Actuator/Other/NOT FOUND]
 
 
-width_mm:
+ width_mm:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1243,7 +1245,7 @@ width_mm:
     WIDTH [MM]: [value/NOT FOUND]
 
 
-wire_seal:
+ wire_seal:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1307,7 +1309,7 @@ wire_seal:
     WIRE SEAL: [Single Wire Seal/Injected/Mat Seal/None/NOT FOUND]
 
 
-connector_position_assurance:
+ connector_position_assurance:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1356,7 +1358,7 @@ connector_position_assurance:
     CONNECTOR POSITION ASSURANCE: [Yes/No/NOT FOUND]
 
 
-colour_coding:
+ colour_coding:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1409,7 +1411,7 @@ colour_coding:
     COLOUR CODING: [Color/none/NOT FOUND]
 
 
-set_kit:
+ set_kit:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
@@ -1464,7 +1466,7 @@ set_kit:
     SET/KIT: [Yes/No/NOT FOUND]
 
 
-closed_cavities:
+ closed_cavities:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
