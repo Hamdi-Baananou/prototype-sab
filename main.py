@@ -133,13 +133,20 @@ def main():
         col3.metric("Analysis Time", f"{total_analysis_time:.1f}s")
         
         # Organized Results Display
-        with st.container():
-            st.markdown("### Material Properties")
-            cols = st.columns(4)
-            cols[0].markdown(f"**Material Filling**\n`{results['material']}`")
-            cols[1].markdown(f"**Primary Material**\n`{results['material_name']}`")
-            cols[2].markdown(f"**Colour**\n`{results['colour']}`")
-            cols[3].markdown(f"**HV Qualified**\n`{results['hv_qualified']}`")
+             with st.container():
+    st.markdown("### Material Properties")
+    cols = st.columns(4)
+
+    with cols[0]:
+        c1, c2 = st.columns([2, 1])
+        c1.markdown(f"**Material Filling**\n`{results['material']}`")
+        confidence = results.get('material_confidence', 0)
+        c2.markdown(f"<br><span style='color:{"#2ecc71" if confidence > 70 else "#e67e22"}'>\n{confidence}%</span>", 
+                    unsafe_allow_html=True)
+
+    cols[2].markdown(f"**Colour**\n`{results['colour']}`")
+    cols[3].markdown(f"**HV Qualified**\n`{results['hv_qualified']}`")
+
             
             st.markdown("### Mechanical Properties")
             cols = st.columns(4)

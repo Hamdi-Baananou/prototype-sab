@@ -127,7 +127,6 @@ attributes:
 
 
   
-
  material_name:
   api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
@@ -172,17 +171,16 @@ attributes:
 
     Examples:
     "Connector: PA6-GF30 (60% resin)" 
-    → REASONING: [Step1] PA6+GF → [Step2] PA6 → [Step3] 60% → [Step4] Specific grade 
+    → REASONING: [Step1 ✓] PA6+GF → [Step2 ✓] PA6 → [Step3 ✓] 60% → [Step4 ✓] Specific grade → [Step5 ✓] Validated 
     → MATERIAL NAME: PA6
 
     "Housing: GF40 Polymer"
-    → REASONING: [Step1] GF additive → [Step2] No base polymer → [Step5] Uncertain 
+    → REASONING: [Step1 ✓] GF additive → [Step2 ✗] No base polymer → [Step5 ✗] Uncertain 
     → MATERIAL NAME: NOT FOUND
 
   Output format:
-    REASONING: [Brief step analysis] 
+    REASONING: [Step analysis with ✓/✗ markers]
     MATERIAL NAME: [UPPERCASE]
-
 
 
  working_temperature:
