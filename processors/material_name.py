@@ -1,41 +1,14 @@
-import re
+# processors/material_name.py
 import requests
 import yaml
 import streamlit as st
 from pathlib import Path
-from typing import Tuple
+from typing import Literal
 
 CONFIG_PATH = Path(__file__).parent.parent / "config.yaml"
 
-def calculate_confidence(reasoning: str) -> int:
-    """Calculate confidence score based on completed steps"""
-    checkmarks = reasoning.count('✓')
-    total_steps = 5  # Total steps in the reasoning chain
-    return min(100, int((checkmarks / total_steps) * 100))
-
-def parse_response(response_text: str) -> Tuple[str, int]:
-    """Extract material name and confidence from API response"""
-    try:
-        # Split reasoning and material name
-        reasoning_section = response_text.split("REASONING:")[1].split("MATERIAL NAME:")[0].strip()
-        material_section = response_text.split("MATERIAL NAME:")[1].strip()
-        
-        # Extract material name
-        material = "NOT FOUND"
-        if material_section:
-            material = re.search(r'^([A-Z0-9]+|NOT FOUND)', material_section).group(0)
-        
-        # Calculate confidence
-        confidence = calculate_confidence(reasoning_section)
-        
-        return material, confidence
-        
-    except Exception as e:
-        st.error(f"Response parsing failed: {str(e)}")
-        return "NOT FOUND", 0
-
-def analyze(text: str) -> Tuple[str, int]:
-    """Extract material name with confidence score"""
+def analyze(text: str) -> Literal[str]:
+    """Extract primary material name from combined documents"""
     try:
         with open(CONFIG_PATH) as f:
             config = yaml.safe_load(f)['attributes']['material_name']
@@ -71,12 +44,14 @@ def analyze(text: str) -> Tuple[str, int]:
         response.raise_for_status()
         
         raw_result = response.json()['choices'][0]['message']['content'].strip()
-        st.write(f"Raw API Response:\n{raw_result}")  # For debugging
         
-        return parse_response(raw_result)
+        # Extract material name from response
+        if "Material Name:" in raw_result:
+            return raw_result.split("Material Name:")[-1].split("\n")[0].strip()
+        return "NOT FOUND"
         
     except Exception as e:
-        st.error(f"Material analysis failed: {str(e)}")
-        return "ANALYSIS_ERROR", 0
+        st.error(f"Material name analysis failed: {str(e)}")
+        return "ANALYSIS_ERROR"
 
 __all__ = ['analyze']
