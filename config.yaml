@@ -1,6 +1,6 @@
 attributes:
   material_filling:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Extract material filling additives using this reasoning chain:
@@ -61,7 +61,7 @@ attributes:
 
 
 pull_to_seat:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine Pull-To-Seat requirement using this reasoning chain:
@@ -127,7 +127,7 @@ pull_to_seat:
   
 
 material_name:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Extract primary polymer material using this reasoning chain:
@@ -184,7 +184,7 @@ material_name:
 
 
 working_temperature:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine working temperatures using this reasoning chain:
@@ -253,7 +253,7 @@ working_temperature:
 
 
 colour:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine connector color using this reasoning chain:
@@ -316,7 +316,7 @@ colour:
 
 
 contact_systems:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Identify approved contact systems using this reasoning chain:
@@ -375,7 +375,7 @@ contact_systems:
 
 
 gender:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine connector gender using this reasoning chain:
@@ -442,7 +442,7 @@ gender:
     GENDER: [Male/Female/Unisex/Hybrid/NOT FOUND]
 
 height_mm:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine connector height using this reasoning chain:
@@ -508,7 +508,7 @@ height_mm:
     HEIGHT [MM]: [value/999]
 
 housing_seal:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine housing seal type using this reasoning chain:
@@ -572,7 +572,7 @@ housing_seal:
 
 
 hv_qualified:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine HV qualification using this reasoning chain:
@@ -640,7 +640,7 @@ hv_qualified:
 
 
 length_mm:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine connector length using this reasoning chain:
@@ -708,7 +708,7 @@ length_mm:
 
 
 mechanical_coding:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine mechanical coding using this reasoning chain:
@@ -777,7 +777,7 @@ mechanical_coding:
 
 
 number_of_cavities:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine cavity count using this reasoning chain:
@@ -836,7 +836,7 @@ number_of_cavities:
 
 
 number_of_rows:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine the number of rows using this reasoning chain:
@@ -904,7 +904,7 @@ number_of_rows:
 
 
 pre_assembled:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine pre-assembly status using this reasoning chain:
@@ -963,7 +963,7 @@ pre_assembled:
 
 
 sealing:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine sealing status using this reasoning chain:
@@ -1022,7 +1022,7 @@ sealing:
 
 
 sealing_class:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine Sealing Class (IP Code) using this reasoning chain:
@@ -1076,7 +1076,7 @@ sealing_class:
     SEALING CLASS: [IPx0/IPx4/IPx4K/IPx5/IPx6/IPx6K/IPx7/IPx8/IPx9/IPx9K]
 
 terminal_position_assurance:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine Terminal Position Assurance (TPA) count using this reasoning chain:
@@ -1131,7 +1131,7 @@ terminal_position_assurance:
 
 
 connector_type:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine the **Type of Connector** using this reasoning chain:
@@ -1186,7 +1186,7 @@ connector_type:
 
 
 width_mm:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine connector width using this reasoning chain:
@@ -1244,7 +1244,7 @@ width_mm:
 
 
 wire_seal:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine the Wire Seal type using this reasoning chain:
@@ -1308,7 +1308,7 @@ wire_seal:
 
 
 connector_position_assurance:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine Connector Position Assurance (CPA) status using this reasoning chain:
@@ -1357,7 +1357,7 @@ connector_position_assurance:
 
 
 colour_coding:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine Colour Coding using this reasoning chain:
@@ -1410,7 +1410,7 @@ colour_coding:
 
 
 set_kit:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine the **Set/Kit** status using this reasoning chain:
@@ -1465,7 +1465,7 @@ set_kit:
 
 
 closed_cavities:
-  api_key: "fw_3ZYLhpzQtRzZKYMpheCBRa6t"
+  api_key: "fw_3ZUuGLzezsuzsR3tYkTFXH7t"
   model: "accounts/fireworks/models/deepseek-r1"
   system_prompt: |
     Determine closed cavities using this reasoning chain:
