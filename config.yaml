@@ -10,7 +10,7 @@ attributes:
       ✓ Explicit additive declarations (GF, GB, MF, T)
       ✓ Mechanical property context clues:
         * "reinforced with..."
-        * "improved [strength/stiffness] using...."
+        * "improved [strength/stiffness] using..."
         * "contains X% [additive]"
       ✓ Negative statements: "no additives", "unfilled"
 
